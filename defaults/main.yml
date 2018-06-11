@@ -1,0 +1,30 @@
+---
+# defaults file for netplan-networking
+
+# The following structure is needed in a playbook that uses this role:
+#
+#  vars:
+#    interfaces:
+## a list of network interfaces to configure with netplan
+#      - interface: <interface name>
+## IPv4 configuration for the interface
+#        ipv4:
+## configured: true will get the interface to be assigned a static address, if given below, or DHCPv4, if not given
+#          configured: true
+#          address: 192.168.71.8/24
+#          gateway: 192.168.71.4
+## IPv6 configuration for the interface
+#        ipv6:
+## configured: true will get the interface to be assigned a static address, if given below, or DHCPv6, if not given
+#          configured: false
+## DNS configuration for the interface
+#        dns:
+#          nameservers:
+#            - <ns 1>
+#            - <ns 2>
+#            - <ns 3>
+#          searchdomains:
+#            - <domain 1>
+#            - <domain 2>
+
+

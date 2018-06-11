@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Douglas Atique
+  description: A role for network configuration using netplan
+
+  license: MIT
+
+  min_ansible_version: 2.5
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 18.04
+
+  galaxy_tags: []
+
+dependencies: []
+

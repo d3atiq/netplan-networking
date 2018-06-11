@@ -1,0 +1,14 @@
+---
+# tasks file for netplan-networking
+
+- name: Configure network interface
+  become: true
+  template:
+    src: iface.j2
+    dest: "/etc/netplan/{{ item.interface }}.iface"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ interfaces }}"
+  notify: restart networkd
+

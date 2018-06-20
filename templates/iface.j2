@@ -3,31 +3,31 @@ network:
   renderer: networkd
   ethernets:
     {{ item.interface }}:
-{% if item.ipv4.configured is defined and item.ipv4.configured %}
-{% if item.ipv4.address %}
+{% if item.ipv4 is defined and item.ipv4.configured is defined and item.ipv4.configured %}
+{% if item.ipv4.address is defined and item.ipv4.address %}
 {% else %}
       dhcp4: true
 {% endif %}
 {% endif %}
-{% if item.ipv6.configured is defined and item.ipv6.configured %}
-{% if item.ipv6.address %}
+{% if item.ipv6 is defined and item.ipv6.configured is defined and item.ipv6.configured %}
+{% if item.ipv6.address is defined and item.ipv6.address %}
 {% else %}
       dhcp6: true
 {% endif %}
 {% endif %}
-{% if (item.ipv4.configured is defined and item.ipv4.configured and item.ipv4.address) or (item.ipv6.configured is defined and item.ipv6.configured and item.ipv6.address) %}
+{% if (item.ipv4 is defined and item.ipv4.configured is defined and item.ipv4.configured and item.ipv4.address is defined and item.ipv4.address) or (item.ipv6 is defined and item.ipv6.configured is defined and item.ipv6.configured and item.ipv6.address is defined and item.ipv6.address) %}
       addresses:
 {% endif %}
-{% if item.ipv4.configured is defined and item.ipv4.configured and item.ipv4.address %}
+{% if item.ipv4 is defined and item.ipv4.configured is defined and item.ipv4.configured and item.ipv4.address is defined and item.ipv4.address %}
         - {{ item.ipv4.address }}
 {% endif %}
-{% if item.ipv6.configured is defined and item.ipv6.configured and item.ipv6.address %}
+{% if item.ipv6 is defined and item.ipv6.configured is defined and item.ipv6.configured and item.ipv6.address is defined and item.ipv6.address %}
         - {{ item.ipv6.address }}
 {% endif %}
-{% if item.ipv4.configured is defined and item.ipv4.configured and item.ipv4.gateway %}
+{% if item.ipv4 is defined and item.ipv4.configured is defined and item.ipv4.configured and item.ipv4.gateway is defined and item.ipv4.gateway %}
       gateway4: {{ item.ipv4.gateway }}
 {% endif %}
-{% if item.ipv6.configured is defined and item.ipv6.configured and item.ipv6.gateway %}
+{% if item.ipv6 is defined and item.ipv6.configured is defined and item.ipv6.configured and item.ipv6.gateway is defined and item.ipv6.gateway %}
       gateway6: {{ item.ipv6.gateway }}
 {% endif %}
 {% if item.dns is defined %}

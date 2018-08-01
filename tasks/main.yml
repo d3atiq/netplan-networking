@@ -5,7 +5,7 @@
   become: true
   template:
     src: iface.j2
-    dest: "/etc/netplan/{{ item.interface }}.iface"
+    dest: "/etc/netplan/{{ item.interface }}.yaml"
     owner: root
     group: root
     mode: 0644

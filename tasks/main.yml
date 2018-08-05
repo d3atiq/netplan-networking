@@ -11,4 +11,3 @@
     mode: 0644
   with_items: "{{ interfaces }}"
   notify: restart networkd
-

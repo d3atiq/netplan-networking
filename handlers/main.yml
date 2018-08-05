@@ -6,4 +6,3 @@
   service:
     name: systemd-networkd
     state: restarted
-

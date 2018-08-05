@@ -31,16 +31,17 @@ network:
       gateway6: {{ item.ipv6.gateway }}
 {% endif %}
 {% if item.dns is defined %}
-{% if item.dns.nameservers is defined and item.dns.nameservers %}
       nameservers:
+{% if item.dns.nameservers is defined and item.dns.nameservers %}
+        addresses:
 {% for ns in item.dns.nameservers %}
-        - {{ ns }}
+          - {{ ns }}
 {% endfor %}
 {% endif %}
 {% if item.dns.searchdomains is defined and item.dns.searchdomains %}
-      search:
+        search:
 {% for sd in item.dns.searchdomains %}
-        - {{ sd }}
+          - {{ sd }}
 {% endfor %}
 {% endif %}
 {% endif %}

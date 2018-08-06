@@ -5,15 +5,21 @@ network:
     {{ item.interface }}:
 {% if item.ipv4 is defined and item.ipv4.configured is defined and item.ipv4.configured %}
 {% if item.ipv4.address is defined and item.ipv4.address %}
+      dhcp4: false
 {% else %}
       dhcp4: true
 {% endif %}
+{% else %}
+      dhcp4: false
 {% endif %}
 {% if item.ipv6 is defined and item.ipv6.configured is defined and item.ipv6.configured %}
 {% if item.ipv6.address is defined and item.ipv6.address %}
+      dhcp6: false
 {% else %}
       dhcp6: true
 {% endif %}
+{% else %}
+      dhcp6: false
 {% endif %}
 {% if (item.ipv4 is defined and item.ipv4.configured is defined and item.ipv4.configured and item.ipv4.address is defined and item.ipv4.address) or (item.ipv6 is defined and item.ipv6.configured is defined and item.ipv6.configured and item.ipv6.address is defined and item.ipv6.address) %}
       addresses:

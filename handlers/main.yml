@@ -1,14 +1,5 @@
 ---
-# handlers file for netplan-networking
 
-- name: restart networkd
+- name: apply network interface
   become: true
-  service:
-    name: systemd-networkd
-    state: restarted
-
-- name: restart resolved
-  become: true
-  service:
-    name: systemd-resolved
-    state: restarted
+  shell: netplan apply

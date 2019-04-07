@@ -11,9 +11,10 @@
     mode: 0644
   with_items: "{{ interfaces }}"
   notify:
-    - restart networkd
-    - restart resolved
+    - apply network interface
+#    - restart networkd
+#    - restart resolved
 
-- name: Apply network interface configuration
-  become: true
-  shell: netplan apply
+#- name: Apply network interface configuration
+#  become: true
+#  shell: netplan apply

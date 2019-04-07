@@ -12,3 +12,7 @@
   service:
     name: systemd-resolved
     state: restarted
+
+- name: apply network interface
+  become: true
+  shell: netplan apply
